@@ -17,8 +17,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
       switch (item.getItemId()) {
-        case R.id.navigation_home:
-          mTextMessage.setText(R.string.title_home);
+        case R.id.navigation_game:
+          mTextMessage.setText(R.string.title_game);
+          return true;
+        case R.id.navigation_startwalk:
+          mTextMessage.setText(R.string.title_startwalk);
           return true;
         case R.id.navigation_items:
           mTextMessage.setText(R.string.title_items);
@@ -37,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    mTextMessage = (TextView) findViewById(R.id.message);
     BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
     navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
   }

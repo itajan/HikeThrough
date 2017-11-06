@@ -9,17 +9,14 @@
   android:orientation="vertical"
   tools:context="edu.cnm.deepdive.irt.hikethrough.MainActivity">
 
-  <FrameLayout
-    android:id="@+id/content"
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="1">
 
-    <SurfaceView
-      android:id="@+id/surfaceView"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"/>
-  </FrameLayout>
+
+  <SurfaceView
+    android:id="@+id/surfaceView"
+    android:layout_weight="1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"/>
+
 
   <android.support.design.widget.BottomNavigationView
     android:id="@+id/navigation"
