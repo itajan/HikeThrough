@@ -1,10 +1,13 @@
 <resources>
   <string name="app_name">Hike Through</string>
   <string name="title_game">Game</string>
-  <string name="title_startwalk">Track Walk</string>
-  <string name="title_items">Items</string>
+  <string name="title_walkconverter">Walk Converter</string>
+  <string name="title_inventory">Inventory</string>
   <string name="title_maps">Maps</string>
 
   <!-- TODO: Remove or change this placeholder text -->
-  <string name="hello_blank_fragment">Hello blank fragment</string>
+  <string name="game_button">Move</string>
+  <string name="convert_walk_button">Convert Walk Button</string>
+  <string name="inventory_button">Inventory Button</string>
+  <string name="maps_button">Maps Button</string>
 </resources>

@@ -2,14 +2,13 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  tools:context=".PlusOneFragment">
+  tools:context="edu.cnm.deepdive.irt.hikethrough.fragments.WalkTrackerFragment">
 
-  <com.google.android.gms.plus.PlusOneButton
-    xmlns:plus="http://schemas.android.com/apk/lib/com.google.android.gms.plus"
-    android:id="@+id/plus_one_button"
+  <!-- TODO: Update blank fragment layout -->
+
+  <Button
+    android:id="@+id/button2"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    plus:annotation="inline"
-    plus:size="standard"/>
-
+    android:text="@string/convert_walk_button"/>
 </FrameLayout>
