@@ -92,7 +92,7 @@ public class WalkTrackerFragment extends Fragment {
     if (context instanceof OnFragmentInteractionListener) {
       mListener = (OnFragmentInteractionListener) context;
     } else {
-      Toast.makeText(context, "Inventory Tracker Fragment Attached", Toast.LENGTH_SHORT).show();
+      Toast.makeText(context, "Convert your walk to Travel Currency", Toast.LENGTH_SHORT).show();
     }
   }
 

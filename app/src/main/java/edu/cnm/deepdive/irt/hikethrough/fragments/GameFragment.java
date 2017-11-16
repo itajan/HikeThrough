@@ -67,14 +67,6 @@ public class GameFragment extends Fragment {
       Bundle savedInstanceState) {
     // Inflate the layout for this fragment
     View view = inflater.inflate(R.layout.fragment_game, container, false);
-    Button btnMove = (Button)view.findViewById(R.id.button);
-    btnMove.setOnClickListener(new OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        Toast.makeText(getActivity(), "Move Button Clicked", Toast.LENGTH_SHORT).show();
-      }
-    });
-
     return view;
   }
 

@@ -1,6 +1,7 @@
 package edu.cnm.deepdive.irt.hikethrough.fragments;
 
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.stmt.QueryBuilder;
 import edu.cnm.deepdive.irt.hikethrough.R;
@@ -22,6 +24,8 @@ import java.util.List;
 
 
 public class InventoryFragment extends Fragment {
+
+  private OnFragmentInteractionListener mListener;
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,6 +44,28 @@ public class InventoryFragment extends Fragment {
       throw new RuntimeException(e);
     }
 
+  }
+
+  public void onButtonPressed(Uri uri) {
+    if (mListener != null) {
+      mListener.onFragmentInteraction(uri);
+    }
+  }
+
+  @Override
+  public void onAttach(Context context) {
+    super.onAttach(context);
+    if (context instanceof OnFragmentInteractionListener) {
+      mListener = (OnFragmentInteractionListener) context;
+    } else {
+      Toast.makeText(context, "Check your inventory", Toast.LENGTH_SHORT).show();
+    }
+  }
+
+  @Override
+  public void onDetach() {
+    super.onDetach();
+    mListener = null;
   }
 
   public class InventoryViewAdapter
@@ -64,6 +90,12 @@ public class InventoryFragment extends Fragment {
       return layout;
 
     }
+  }
+
+  public interface OnFragmentInteractionListener {
+
+    // TODO: Update argument type and name
+    void onFragmentInteraction(Uri uri);
   }
 
 }

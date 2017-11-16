@@ -56,9 +56,40 @@ public class OrmHelper extends OrmLiteSqliteOpenHelper {
     Inventory inventory = new Inventory();
     inventory.setName("Balthazar The Horse");
     getInventoryDao().create(inventory);
+
     inventory = new Inventory();
     inventory.setName("Super Burly Gnarly Boots");
     getInventoryDao().create(inventory);
+
+    inventory = new Inventory();
+    inventory.setName("Iron Oak Hiking Pole-Spear");
+    getInventoryDao().create(inventory);
+
+    inventory = new Inventory();
+    inventory.setName("Benny the Bear's Coat");
+    getInventoryDao().create(inventory);
+
+    inventory = new Inventory();
+    inventory.setName("Moro The Wolf");
+    getInventoryDao().create(inventory);
+
+    inventory = new Inventory();
+    inventory.setName("Crystal Clear Water");
+    getInventoryDao().create(inventory);
+
+    inventory = new Inventory();
+    inventory.setName("Cosworth's Cozy Tent");
+    getInventoryDao().create(inventory);
+
+    inventory = new Inventory();
+    inventory.setName("Ancient Gold Coin");
+    getInventoryDao().create(inventory);
+
+    inventory = new Inventory();
+    inventory.setName("Blue Crystal");
+    getInventoryDao().create(inventory);
+
+
   }
 
   public interface OrmInteraction {
