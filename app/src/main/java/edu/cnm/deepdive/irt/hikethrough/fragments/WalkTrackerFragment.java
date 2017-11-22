@@ -68,7 +68,7 @@ public class WalkTrackerFragment extends Fragment {
       Bundle savedInstanceState) {
     // Inflate the layout for this fragment
     View view = inflater.inflate(R.layout.fragment_walk_tracker, container, false);
-    Button btnMove = (Button)view.findViewById(R.id.button2);
+    Button btnMove = (Button)view.findViewById(R.id.convertWalkButton);
     btnMove.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View view) {
