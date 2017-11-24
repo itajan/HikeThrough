@@ -11,11 +11,6 @@
 
 *You can collect items that can augment both the conversion rate of actual distance into travel currency and lower the cost to pass through or land on moutain/alpine tiles. In addition there are equipment items that all have 24hr timers before they expire and are removed from your inventory, that can are expended when presented with a random event. These random events are dependent upon tile type. The type of equipment you can acquire is dependent upon the tile type you choose to land on.*
 
-## Acknowledgements & References ##
-Many thanks to Amit Patel at [Red Blob Games](https://www.redblobgames.com// "Red Blob Games") for creating an incredible repository of information on the math behind and the designing of different map types, most specifically hexagon maps. 
-
-Big Thanks to [Nick Bennett](https://github.com/nick-bennett// "Nick Bennett") and [Chris Hughes](https://github.com/cfhughes// "Chris Hughes") for their help on this project.
-
 ## Goals ##
 1. ~~To get the 7 hexagon shaped maps to draw correctly on screen and then randomly populate all the land tile types as each level is begun.~~ 
 2. ~~To wire in the the usage of travel currency and assign each tile type a cost, and store in database.~~
@@ -30,3 +25,10 @@ Big Thanks to [Nick Bennett](https://github.com/nick-bennett// "Nick Bennett") a
 4. Implement social media sharing of completed games/maps
 5. To wire in the avatar and implement a pathfinding function using Diikstra's algorithm.
 6. Pretty much make something closer to the initial idea.
+
+
+## Acknowledgements & References ##
+Many thanks to Amit Patel at [Red Blob Games](https://www.redblobgames.com// "Red Blob Games") for creating an incredible repository of information on the math behind and the designing of different map types, most specifically hexagon maps. 
+
+Big Thanks to [Nick Bennett](https://github.com/nick-bennett// "Nick Bennett") and [Chris Hughes](https://github.com/cfhughes// "Chris Hughes") for their help on this project.
+
