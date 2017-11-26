@@ -83,7 +83,7 @@ public class GameFragment extends Fragment {
     if (context instanceof OnFragmentInteractionListener) {
       mListener = (OnFragmentInteractionListener) context;
     } else {
-      Toast.makeText(context, "Game Fragment Attached", Toast.LENGTH_SHORT).show();
+      Toast.makeText(context, "Hike Through", Toast.LENGTH_SHORT).show();
     }
   }
 

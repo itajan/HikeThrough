@@ -15,11 +15,22 @@ import edu.cnm.deepdive.irt.hikethrough.entities.Level.Tile;
 import edu.cnm.deepdive.irt.hikethrough.entities.MapTileType;
 import java.util.Random;
 
-
+/**
+ * GameView class that defines methods for drawing the hexagon map on screen.
+ */
 public class GameView extends View {
 
-  public static final int RINGS = 4;
+  /**
+   * Defines the constant for number of rings in hexagon map
+   */
+  public static final int RINGS = 6;
+  /**
+   * Defines the constant for math formula for calculating radius of hexagon
+   */
   public static final float INV_ROOT_3 = (float) (1 / Math.sqrt(3));
+  /**
+   * Defines the constant for math formula for calculating radius of hexagon
+   */
   public static final float ROOT_3 = (float) (Math.sqrt(3));
 
 
@@ -52,7 +63,11 @@ public class GameView extends View {
 //  VectorDrawable tradingpost;
 //  VectorDrawable underground;
 
-
+  /**
+   * GameView method to draw hexagon game board based on given parameters
+   * @param context Map tile type data
+   * @param attrs Attributes of map tiles
+   */
   public GameView(Context context, AttributeSet attrs) {
     super(context, attrs);
   }
@@ -66,7 +81,7 @@ public class GameView extends View {
     RectF hexBox = new RectF();
     canvas.translate(centerX, centerY);
     // canvas.scale(1, -1);
-     Level level = new Level(RINGS, new Random(), MapTileType.START, MapTileType.NEXTLEVEL);
+     Level level = new Level(RINGS, new Random(), MapTileType.START, MapTileType.HOME);
     for (Tile[] ring : level.getTerrain()) {
       for (Tile tile : ring) {
         hexBox(hexBox, tile.getR(), tile.getS());
@@ -81,10 +96,18 @@ public class GameView extends View {
     }
   }
 
+  /**
+   *
+   * @return returns current level
+   */
   public Level getLevel() {
     return level;
   }
 
+  /**
+   *
+   * @param level Sets level as current
+   */
   public void setLevel(Level level) {
     this.level = level;
   }

@@ -18,6 +18,10 @@ import edu.cnm.deepdive.irt.hikethrough.fragments.MapsFragment;
 import edu.cnm.deepdive.irt.hikethrough.fragments.WalkTrackerFragment;
 import edu.cnm.deepdive.irt.hikethrough.helpers.OrmHelper;
 
+/**
+ * Main activity class that defines the methods for the bottom navigation bar as well as implements
+ * OrmHelper on each fragment.
+ */
 public class MainActivity extends AppCompatActivity implements OrmHelper.OrmInteraction {
 
   private OrmHelper helper = null;
@@ -85,6 +89,9 @@ public class MainActivity extends AppCompatActivity implements OrmHelper.OrmInte
     return helper;
   }
 
+  /**
+   * Method that checks for OrmHelper and releases if not needed.
+   */
   public synchronized void releaseHelper() {
     if (helper != null) {
       OpenHelperManager.releaseHelper();

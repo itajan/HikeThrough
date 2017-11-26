@@ -22,7 +22,11 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-
+/**
+ * A simple {@link Fragment} subclass. Activities that contain this fragment must implement the
+ * {@link InventoryFragment.OnFragmentInteractionListener} interface to handle interaction events. Use the {@link
+ * InventoryFragment} factory method to create an instance of this fragment.
+ */
 public class InventoryFragment extends Fragment {
 
   private OnFragmentInteractionListener mListener;
@@ -71,6 +75,11 @@ public class InventoryFragment extends Fragment {
   public class InventoryViewAdapter
       extends ArrayAdapter<Inventory> {
 
+    /**
+     *
+     * @param context Context of data
+     * @param objects Object type
+     */
     public InventoryViewAdapter(Context context, List<Inventory> objects) {
       super(context, R.layout.inventory_list_content, objects);
     }
@@ -92,6 +101,14 @@ public class InventoryFragment extends Fragment {
     }
   }
 
+  /**
+   * This interface must be implemented by activities that contain this fragment to allow an
+   * interaction in this fragment to be communicated to the activity and potentially other fragments
+   * contained in that activity.
+   * <p>
+   * See the Android Training lesson <a href= "http://developer.android.com/training/basics/fragments/communicating.html"
+   * >Communicating with Other Fragments</a> for more information.
+   */
   public interface OnFragmentInteractionListener {
 
     // TODO: Update argument type and name

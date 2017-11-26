@@ -6,7 +6,7 @@
   <string name="title_maps">Maps</string>
 
   <!-- TODO: Remove or change this placeholder text -->
-  <string name="game_button">Move</string>
+  <string name="game_button">Game</string>
   <string name="convert_walk_button">Convert Walk Button</string>
   <string name="inventory_button">Inventory Button</string>
   <string name="maps_button">Maps Button</string>

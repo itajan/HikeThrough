@@ -1,11 +1,70 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
+  android:orientation="vertical"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   tools:context="edu.cnm.deepdive.irt.hikethrough.fragments.GameFragment">
 
+  <GridLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="0"
+    android:columnCount="4"
+    android:rowCount="1">
+    <TextView
+      android:text="HikeCoin = "
+      android:layout_column="0"
+      android:layout_gravity="fill_horizontal"
+      android:padding="20dp"/>
+    <TextView
+      android:text="00"
+      android:layout_column="1"
+      android:layout_gravity="fill_horizontal"
+      android:padding="20dp"/>
+    <TextView
+      android:text="Move Count = "
+      android:layout_column="2"
+      android:layout_gravity="fill_horizontal"
+      android:padding="20dp"/>
+    <TextView
+      android:text="00"
+      android:layout_column="3"
+      android:layout_gravity="fill_horizontal"
+      android:padding="20dp"/>
+
+  </GridLayout>
+
+
   <edu.cnm.deepdive.irt.hikethrough.views.GameView
     android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
+    android:layout_height="wrap_content"
+    android:layout_weight="1"/>
 
-</FrameLayout>
+  <GridLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="0"
+    android:columnCount="3"
+    android:rowCount="1">
+    <Button
+      android:text="Start"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="fill_horizontal"
+      android:padding="20dp"/>
+    <Button
+      android:text="Reset"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="fill_horizontal"
+      android:padding="20dp"/>
+    <Button
+      android:text="Undo Move"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="fill_horizontal"
+      android:padding="20dp"
+      />
+
+  </GridLayout>
+</LinearLayout>

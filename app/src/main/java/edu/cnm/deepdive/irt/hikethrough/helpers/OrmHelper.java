@@ -7,17 +7,28 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import edu.cnm.deepdive.irt.hikethrough.entities.Inventory;
+import edu.cnm.deepdive.irt.hikethrough.entities.Level;
+import edu.cnm.deepdive.irt.hikethrough.entities.MapTileType;
+import java.io.Serializable;
 import java.sql.SQLException;
 
+/**
+ * OrmHelper class that extends SQLite data storage native to Android.
+ */
 public class OrmHelper extends OrmLiteSqliteOpenHelper {
 
   private static final String DATABASE_NAME = "inventory.db";
   private static final int DATABASE_VERSION = 1;
 
+
   // Data access object(Dao)
   private Dao<Inventory, Integer> inventoryDao = null;
+  private Dao<Level, Serializable> levelDao = null;
 
-
+  /**
+   * OrmHelper constructor
+   * @param context Context of data
+   */
   public OrmHelper (Context context) {
     super(context, DATABASE_NAME, null, DATABASE_VERSION);
   }
@@ -45,11 +56,28 @@ public class OrmHelper extends OrmLiteSqliteOpenHelper {
     super.close();
   }
 
+  /**
+   *
+   * @return Returns inventory data access object
+   * @throws SQLException Throws exception if no data is found
+   */
   public synchronized Dao<Inventory, Integer> getInventoryDao() throws SQLException {
     if (inventoryDao == null) {
       inventoryDao = getDao(Inventory.class);
     }
     return inventoryDao;
+  }
+
+  /**
+   *
+   * @return Returns level data access object
+   * @throws SQLException Throws exception if no data is found
+   */
+  public synchronized  Dao<Level, Serializable> getLevelDao() throws SQLException {
+    if (levelDao == null) {
+      levelDao = getDao(Level.class);
+    }
+    return levelDao;
   }
 
   private void populateDatabase() throws SQLException {
@@ -89,9 +117,11 @@ public class OrmHelper extends OrmLiteSqliteOpenHelper {
     inventory.setName("Blue Crystal");
     getInventoryDao().create(inventory);
 
-
   }
 
+  /**
+   * Interface method used in other classes, OrmHelper
+   */
   public interface OrmInteraction {
     OrmHelper getHelper();
   }

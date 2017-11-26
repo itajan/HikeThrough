@@ -3,6 +3,7 @@ package edu.cnm.deepdive.irt.hikethrough.fragments;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -68,11 +69,11 @@ public class WalkTrackerFragment extends Fragment {
       Bundle savedInstanceState) {
     // Inflate the layout for this fragment
     View view = inflater.inflate(R.layout.fragment_walk_tracker, container, false);
-    Button btnMove = (Button)view.findViewById(R.id.convertWalkButton);
+    Button btnMove = (Button) view.findViewById(R.id.convertWalkButton);
     btnMove.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View view) {
-        Toast.makeText(getActivity(), "Walk Tracker Button Clicked", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), "Walk Converted", Toast.LENGTH_SHORT).show();
       }
     });
 
