@@ -57,6 +57,6 @@ Big Thanks to [Nick Bennett](https://github.com/nick-bennett// "Nick Bennett") f
 
 ### Javadoc ###
 
-HikeThrough Javadoc
+[HikeThrough Javadoc](https://github.com/itajan/HikeThrough/tree/master/docs/api// "HikeThrough Javadoc")
 
 
