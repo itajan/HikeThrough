@@ -1,6 +1,7 @@
 package edu.cnm.deepdive.irt.hikethrough.fragments;
 
 import android.content.Context;
+import android.graphics.Point;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,65 +13,78 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 import edu.cnm.deepdive.irt.hikethrough.R;
+import edu.cnm.deepdive.irt.hikethrough.entities.Level;
+import edu.cnm.deepdive.irt.hikethrough.entities.MapTileType;
+import edu.cnm.deepdive.irt.hikethrough.views.GameView;
+import java.util.Random;
 
 /**
  * A simple {@link Fragment} subclass. Activities that contain this fragment must implement the
- * {@link GameFragment.OnFragmentInteractionListener} interface to handle interaction events. Use the {@link
- * GameFragment#newInstance} factory method to create an instance of this fragment.
+ * {@link GameFragment.OnFragmentInteractionListener} interface to handle interaction events. Use
+ * the {@link GameFragment#} factory method to create an instance of this fragment.
  */
 public class GameFragment extends Fragment {
 
-  // TODO: Rename parameter arguments, choose names that match
   // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
   private static final String ARG_PARAM1 = "param1";
   private static final String ARG_PARAM2 = "param2";
 
-  // TODO: Rename and change types of parameters
-  private String mParam1;
-  private String mParam2;
+  private static final int NUM_LEVELS = 7;
+  private static final int NUM_RINGS = 6;
+
+  private Level[] levels = new Level[NUM_LEVELS];
+  private int currentLevel;
+  private Random rng = new Random();
+  private Point avatarPosition = null;
+  private GameView view = null;
 
   private OnFragmentInteractionListener mListener;
 
+  /**
+   *
+   */
   public GameFragment() {
-    // Required empty public constructor
+    for (int i = 0; i < NUM_LEVELS; i++) {
+      levels[i] = new Level(NUM_RINGS, rng, MapTileType.START,
+          (i < NUM_LEVELS - 1) ? MapTileType.NEXTLEVEL : MapTileType.HOME);
+    }
   }
 
-  /**
-   * Use this factory method to create a new instance of this fragment using the provided
-   * parameters.
-   *
-   * @param param1 Parameter 1.
-   * @param param2 Parameter 2.
-   * @return A new instance of fragment GameFragment.
-   */
-  // TODO: Rename and change types and number of parameters
-  public static GameFragment newInstance(String param1, String param2) {
-    GameFragment fragment = new GameFragment();
-    Bundle args = new Bundle();
-    args.putString(ARG_PARAM1, param1);
-    args.putString(ARG_PARAM2, param2);
-    fragment.setArguments(args);
-    return fragment;
-  }
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     if (getArguments() != null) {
-      mParam1 = getArguments().getString(ARG_PARAM1);
-      mParam2 = getArguments().getString(ARG_PARAM2);
+
     }
+  }
+
+  public Point getAvatarPosition() {
+    return avatarPosition;
+  }
+
+  public void setAvatarPosition(Point avatarPosition) {
+    this.avatarPosition = avatarPosition;
+    view.setPosition(avatarPosition);
+    view.invalidate();
   }
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
-    // Inflate the layout for this fragment
-    View view = inflater.inflate(R.layout.fragment_game, container, false);
-    return view;
+    View root = inflater.inflate(R.layout.fragment_game, container, false);
+    view = (GameView) root.findViewById(R.id.gameView);
+    view.setLevel(levels[0]);
+    avatarPosition = new Point(1 - NUM_RINGS, 0);
+    view.setPosition(avatarPosition);
+    view.setFragment(this);
+    return root;
   }
 
-  // TODO: Rename method, update argument and hook method into UI event
+  /**
+   *
+   * @param uri
+   */
   public void onButtonPressed(Uri uri) {
     if (mListener != null) {
       mListener.onFragmentInteraction(uri);
@@ -85,6 +99,16 @@ public class GameFragment extends Fragment {
     } else {
       Toast.makeText(context, "Hike Through", Toast.LENGTH_SHORT).show();
     }
+  }
+
+  @Override
+  public void onStart() {
+    super.onStart();
+  }
+
+  @Override
+  public void onStop() {
+    super.onStop();
   }
 
   @Override

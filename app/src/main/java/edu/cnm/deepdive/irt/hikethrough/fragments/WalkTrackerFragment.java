@@ -69,11 +69,11 @@ public class WalkTrackerFragment extends Fragment {
       Bundle savedInstanceState) {
     // Inflate the layout for this fragment
     View view = inflater.inflate(R.layout.fragment_walk_tracker, container, false);
-    Button btnMove = (Button) view.findViewById(R.id.convertWalkButton);
+    Button btnMove = view.findViewById(R.id.convertWalkButton);
     btnMove.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View view) {
-        Toast.makeText(getActivity(), "Walk Converted", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), R.string.convert_walk_button_clicked, Toast.LENGTH_SHORT).show();
       }
     });
 

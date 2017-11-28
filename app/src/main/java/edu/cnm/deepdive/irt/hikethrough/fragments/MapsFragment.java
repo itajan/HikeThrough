@@ -9,56 +9,81 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.GridView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
-import com.j256.ormlite.dao.Dao;
-import com.j256.ormlite.stmt.QueryBuilder;
 import edu.cnm.deepdive.irt.hikethrough.R;
-import edu.cnm.deepdive.irt.hikethrough.entities.Inventory;
-import edu.cnm.deepdive.irt.hikethrough.entities.Level;
-import edu.cnm.deepdive.irt.hikethrough.helpers.OrmHelper.OrmInteraction;
-import java.io.Serializable;
-import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass. Activities that contain this fragment must implement the
  * {@link MapsFragment.OnFragmentInteractionListener} interface to handle interaction events. Use the {@link
- * MapsFragment} factory method to create an instance of this fragment.
+ * MapsFragment#newInstance} factory method to create an instance of this fragment.
  */
 public class MapsFragment extends Fragment {
 
+  // TODO: Rename parameter arguments, choose names that match
+  // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+  private static final String ARG_PARAM1 = "param1";
+  private static final String ARG_PARAM2 = "param2";
+
+  // TODO: Rename and change types of parameters
+  private String mParam1;
+  private String mParam2;
+
   private OnFragmentInteractionListener mListener;
+
+  /**
+   * Maps fragment inflates the share maps view within the bottom navigation bar.
+   */
+  public MapsFragment() {
+    // Required empty public constructor
+  }
+
+  /**
+   * Use this factory method to create a new instance of this fragment using the provided
+   * parameters.
+   *
+   * @param param1 Parameter 1.
+   * @param param2 Parameter 2.
+   * @return A new instance of fragment MapsFragment.
+   */
+  // TODO: Rename and change types and number of parameters
+  public static MapsFragment newInstance(String param1, String param2) {
+    MapsFragment fragment = new MapsFragment();
+    Bundle args = new Bundle();
+    args.putString(ARG_PARAM1, param1);
+    args.putString(ARG_PARAM2, param2);
+    fragment.setArguments(args);
+    return fragment;
+  }
+
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    if (getArguments() != null) {
+      mParam1 = getArguments().getString(ARG_PARAM1);
+      mParam2 = getArguments().getString(ARG_PARAM2);
+    }
+  }
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
     // Inflate the layout for this fragment
-    try {
-      GridView rootView = (GridView) inflater
-          .inflate(R.layout.fragment_maps, container, false);
-      Dao<Level, Serializable> dao = ((OrmInteraction) getActivity()).getHelper().getLevelDao();
-      QueryBuilder<Level, Serializable> builder = dao.queryBuilder();
-      builder.orderBy("CREATED", false);
-      List<Level> items = dao.query(builder.prepare());
-      rootView.setAdapter(new LevelViewAdapter(getContext(), items));
-      return rootView;
-    } catch (SQLException e) {
-      throw new RuntimeException(e);
-    }
+    View view = inflater.inflate(R.layout.fragment_maps, container, false);
+    Button btnMove = (Button)view.findViewById(R.id.mapShareButton);
+    btnMove.setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Toast.makeText(getActivity(), "Maps Button Clicked", Toast.LENGTH_SHORT).show();
+      }
+    });
 
+    return view;
   }
 
   /**
    *
-   * @param uri Unused parameter
+   * @param uri
    */
   public void onButtonPressed(Uri uri) {
     if (mListener != null) {
@@ -72,7 +97,7 @@ public class MapsFragment extends Fragment {
     if (context instanceof OnFragmentInteractionListener) {
       mListener = (OnFragmentInteractionListener) context;
     } else {
-      Toast.makeText(context, "Saved Maps", Toast.LENGTH_SHORT).show();
+      Toast.makeText(context, R.string.share_map_button_clicked, Toast.LENGTH_SHORT).show();
     }
   }
 
@@ -80,36 +105,6 @@ public class MapsFragment extends Fragment {
   public void onDetach() {
     super.onDetach();
     mListener = null;
-  }
-
-  /**
-   * Adapter interface to create view in Map fragment
-   */
-  public class LevelViewAdapter
-      extends ArrayAdapter<Level> {
-
-    /**
-     *
-     * @param context Context of data
-     * @param objects Object type
-     */
-    public LevelViewAdapter(Context context, List<Level> objects) {
-      super(context, R.layout.level_map_content, objects);
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-      Context context = getContext();
-      LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-      LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.level_map_content, null);
-      Level item = getItem(position);
-      TextView created = (TextView) layout.findViewById(R.id.map_created);
-      DateFormat format = new SimpleDateFormat("MM/dd/yy h:mm a");
-      created.setText(format.format(item.getTerrain()));
-
-      return layout;
-
-    }
   }
 
   /**
@@ -125,5 +120,4 @@ public class MapsFragment extends Fragment {
     // TODO: Update argument type and name
     void onFragmentInteraction(Uri uri);
   }
-
 }

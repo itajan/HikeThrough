@@ -117,7 +117,7 @@ public class Level {
         if (q <= 0) {
           if (-q < p) {
             ring = p;
-            step = q;
+            step = -q;
           } else {
             ring = -q;
             step = 2 * ring - p;
@@ -136,7 +136,7 @@ public class Level {
             step = 3 * ring + q;
           } else {
             ring = q;
-            step = 3 * ring + 2 * (q + p) + 1;
+            step = 5 * ring + p;
           }
         }
       }
@@ -147,7 +147,7 @@ public class Level {
       return new Point(p, q);
     }
 
-    private static Point rsToPq(int ring, int step) {
+    public static Point rsToPq(int ring, int step) {
       int segment = step / ((ring > 0) ? ring : 1);
       int stepAlongSegment = step % ((ring > 0) ? ring : 1);
       int p = START_P [segment] * ring + INCREMENT_P [segment] * stepAlongSegment;

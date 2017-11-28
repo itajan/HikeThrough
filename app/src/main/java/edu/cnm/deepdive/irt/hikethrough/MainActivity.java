@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity implements OrmHelper.OrmInte
 
   private OrmHelper helper = null;
 
+  private GameFragment gameFragment = null;
+
   private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
       = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -35,7 +37,10 @@ public class MainActivity extends AppCompatActivity implements OrmHelper.OrmInte
       FragmentTransaction transaction = fragmentManager.beginTransaction();
       switch (item.getItemId()) {
         case R.id.navigation_game:
-          transaction.replace(R.id.content, new GameFragment()).commit();
+          if (gameFragment == null) {
+            gameFragment = new GameFragment();
+          }
+          transaction.replace(R.id.content, gameFragment).commit();
           return true;
 
         case R.id.navigation_walkconverter:
