@@ -50,6 +50,10 @@ public class InventoryFragment extends Fragment {
 
   }
 
+  /**
+   *
+   * @param uri Unassigned parameter
+   */
   public void onButtonPressed(Uri uri) {
     if (mListener != null) {
       mListener.onFragmentInteraction(uri);
@@ -72,6 +76,9 @@ public class InventoryFragment extends Fragment {
     mListener = null;
   }
 
+  /**
+   * Adapter to create an array of inventory in the ListView
+   */
   public class InventoryViewAdapter
       extends ArrayAdapter<Inventory> {
 

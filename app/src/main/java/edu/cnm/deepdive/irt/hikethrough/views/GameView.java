@@ -23,7 +23,8 @@ import edu.cnm.deepdive.irt.hikethrough.fragments.GameFragment;
 import java.util.Random;
 
 /**
- * GameView class that defines methods for drawing the hexagon map on screen.
+ * GameView class that defines methods for drawing the hexagon map on screen. Houses the methods for
+ * drawing the map and drawing the avatar on the screen at runtime.
  */
 public class GameView extends View implements OnClickListener, OnTouchListener {
 
@@ -63,10 +64,18 @@ public class GameView extends View implements OnClickListener, OnTouchListener {
   private float scale;
   private GameFragment fragment;
 
+  /**
+   *
+   * @return Returns a position in point form
+   */
   public Point getPosition() {
     return position;
   }
 
+  /**
+   *
+   * @param position Sets the pq position
+   */
   public void setPosition(Point position) {
     this.position = position;
     Log.d("WTF position PQ", position.toString());
@@ -183,10 +192,18 @@ public class GameView extends View implements OnClickListener, OnTouchListener {
     }
   }
 
+  /**
+   *
+   * @return Returns current fragment state
+   */
   public GameFragment getFragment() {
     return fragment;
   }
 
+  /**
+   *
+   * @param fragment Sets the fragment view so that the map composition does not change when you navigate away
+   */
   public void setFragment(GameFragment fragment) {
     this.fragment = fragment;
   }

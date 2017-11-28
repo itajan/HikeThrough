@@ -41,7 +41,8 @@ public class GameFragment extends Fragment {
   private OnFragmentInteractionListener mListener;
 
   /**
-   *
+   * Increase the level by 1 when you reach the NEXTLEVEL tile, up to 7 levels until the player
+   * reaches the HOME hexagon tile.
    */
   public GameFragment() {
     for (int i = 0; i < NUM_LEVELS; i++) {
@@ -59,10 +60,18 @@ public class GameFragment extends Fragment {
     }
   }
 
+  /**
+   *
+   * @return Returns the position of the avatar on the game board
+   */
   public Point getAvatarPosition() {
     return avatarPosition;
   }
 
+  /**
+   *
+   * @param avatarPosition Sets the avatar position at the starting point
+   */
   public void setAvatarPosition(Point avatarPosition) {
     this.avatarPosition = avatarPosition;
     view.setPosition(avatarPosition);
@@ -83,7 +92,7 @@ public class GameFragment extends Fragment {
 
   /**
    *
-   * @param uri
+   * @param uri Unassigned parameter
    */
   public void onButtonPressed(Uri uri) {
     if (mListener != null) {

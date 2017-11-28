@@ -105,7 +105,8 @@ public class Level {
     }
 
     /**
-     *
+     * Main logic for determining position on the hexagonal game board through conversion of p & q
+     * to rings and steps.
      * @param p Parameter p is x is this case
      * @param q Parameter q is y is this case
      * @return Returns position of hexagon tile on map
@@ -147,6 +148,13 @@ public class Level {
       return new Point(p, q);
     }
 
+    /**
+     * Conversion of ring and steps back to pq
+     *
+     * @param ring Starting ring 0 - n
+     * @param step Step increments
+     * @return Returns the x and y of hexagon tile
+     */
     public static Point rsToPq(int ring, int step) {
       int segment = step / ((ring > 0) ? ring : 1);
       int stepAlongSegment = step % ((ring > 0) ? ring : 1);

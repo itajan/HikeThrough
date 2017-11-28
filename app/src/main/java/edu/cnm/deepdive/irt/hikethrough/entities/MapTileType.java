@@ -42,8 +42,12 @@ public enum MapTileType {
   public final float cost;
 
 
-
-
+  /**
+   *
+   * @param drawable an integer of vector drawables
+   * @param weight float of weights for each hexagon tile type and how often they draw on the board
+   * @param cost Cost of each hexagon tile to move into
+   */
   MapTileType (int drawable, float weight, float cost) {
     this.drawable = drawable;
     this.weight = weight;

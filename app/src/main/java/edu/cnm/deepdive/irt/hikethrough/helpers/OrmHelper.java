@@ -14,6 +14,8 @@ import java.sql.SQLException;
 
 /**
  * OrmHelper class that extends SQLite data storage native to Android.
+ *
+ * List of inventory items that may be utilized in future builds of the game to augment play elements.
  */
 public class OrmHelper extends OrmLiteSqliteOpenHelper {
 

@@ -19,6 +19,9 @@ import edu.cnm.deepdive.irt.hikethrough.R;
  * {@link WalkTrackerFragment.OnFragmentInteractionListener} interface to handle interaction events.
  * Use the {@link WalkTrackerFragment#newInstance} factory method to create an instance of this
  * fragment.
+ *
+ * Eventual location for interaction with Google fit API to check for new walks and convert distance
+ * walked into HikeCoin.
  */
 public class WalkTrackerFragment extends Fragment {
 

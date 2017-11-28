@@ -7,7 +7,7 @@ import java.util.Random;
 
 /**
  * Class for defining number of levels in a game and for placing requisite tiles based on current
- * level player is at.
+ * level player is at. Creates the random composition of the map.
  */
 public class Game {
 

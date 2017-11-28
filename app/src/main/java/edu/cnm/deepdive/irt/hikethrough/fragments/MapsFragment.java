@@ -17,6 +17,8 @@ import edu.cnm.deepdive.irt.hikethrough.R;
  * A simple {@link Fragment} subclass. Activities that contain this fragment must implement the
  * {@link MapsFragment.OnFragmentInteractionListener} interface to handle interaction events. Use the {@link
  * MapsFragment#newInstance} factory method to create an instance of this fragment.
+ *
+ * Eventual fragment for stored maps of completed game sessions and to upload to social media sites.
  */
 public class MapsFragment extends Fragment {
 
@@ -83,7 +85,7 @@ public class MapsFragment extends Fragment {
 
   /**
    *
-   * @param uri
+   * @param uri Unassigned parameter
    */
   public void onButtonPressed(Uri uri) {
     if (mListener != null) {
