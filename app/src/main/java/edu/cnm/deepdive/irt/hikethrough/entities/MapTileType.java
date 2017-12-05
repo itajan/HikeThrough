@@ -25,7 +25,7 @@ public enum MapTileType {
   RIVERLAND(R.drawable.ic_map_riverland, 3, 3),
   UNDERGROUND(R.drawable.ic_map_underground, 1, 5);
 
-//  Will not be using this tile until I further build out the game.
+//  Will not be using this tile until I build out the game further.
 //  TRADINGPOST(R.drawable.ic_map_tradingpost, 1, 0);
 
   /**
